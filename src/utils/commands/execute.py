@@ -1,5 +1,4 @@
 import subprocess
-import os
 
 async def run_execute_commands(target_folder):
     commands = [

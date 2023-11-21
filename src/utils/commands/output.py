@@ -1,5 +1,5 @@
-from ...run_terminal import run_terminal_commands
+import subprocess
 
 async def run_output_commands(id, target_folder):
-    command = f'kaggle kernels output {id} -p {target_folder}'
-    await run_terminal_commands([command])
+    subprocess.run(['kaggle', 'kernels', 'output', str(id), '-p', str(target_folder)])
+

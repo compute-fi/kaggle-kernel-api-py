@@ -1,6 +1,8 @@
 .venv
 kaggle.json
+.env
 
 /src/__pycache__
 /src/utils/__pycache__
 /src/utils/commands/__pycache__
+/2095c413-8322-4895-b8c1-9ee13a393ec9

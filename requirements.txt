@@ -13,10 +13,12 @@ Jinja2
 kaggle
 MarkupSafe
 python-dateutil
+python-dotenv
 python-slugify
 requests
 six
 text-unidecode
+thirdweb-sdk
 tqdm
 urllib3
 webencodings

@@ -8,6 +8,8 @@ from src.utils.commands.push import run_push_commands
 from src.utils.getID import get_id
 from src.utils.commands.status import run_status_commands
 from src.utils.commands.output import run_output_commands
+from src.thirdweb_upload import upload_data
+
 
 app = Flask(__name__)
 port = 3000
@@ -40,10 +42,15 @@ async def get_status():
 async def get_output():
     folderID = request.args.get('folderID')
     ID = await get_id(folderID)
+    print("ID",ID)
     await run_output_commands(ID, folderID)
+    # Read the file
     title = ID.split('/')[1]
     filePath = os.path.join(folderID, title + '.log')
-    return send_file(filePath, as_attachment=True)
+    with open(filePath, 'r') as file:
+        file_content = file.read()
+    ipfs_hash = await upload_data(file_content)
+    return ipfs_hash
 
 # Start running the terminal commands
 run_initial_commands()
