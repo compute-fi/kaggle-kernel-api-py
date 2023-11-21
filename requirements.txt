@@ -12,10 +12,12 @@ itsdangerous
 Jinja2
 kaggle
 MarkupSafe
+py-cid
 python-dateutil
 python-dotenv
 python-slugify
 requests
+requests-toolbet
 six
 text-unidecode
 thirdweb-sdk

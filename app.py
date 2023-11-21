@@ -8,7 +8,7 @@ from src.utils.commands.push import run_push_commands
 from src.utils.getID import get_id
 from src.utils.commands.status import run_status_commands
 from src.utils.commands.output import run_output_commands
-from src.thirdweb_upload import upload_data
+from src.pinata_upload import pin_file_to_ipfs
 
 
 app = Flask(__name__)
@@ -47,9 +47,8 @@ async def get_output():
     # Read the file
     title = ID.split('/')[1]
     filePath = os.path.join(folderID, title + '.log')
-    with open(filePath, 'r') as file:
-        file_content = file.read()
-    ipfs_hash = await upload_data(file_content)
+    ipfs_hash = pin_file_to_ipfs(filePath)
+    print(ipfs_hash)
     return ipfs_hash
 
 # Start running the terminal commands
