@@ -1,23 +1,26 @@
-# QuickStart
+# QuickStart(Python version 3.8.18)
 
 1. Setup environment variable JWT token from pinata cloud. Download kaggle.json from kaggle.com and place it on your root directory. Make sure to verify you kaggle account.
 
-2. Setups virtual environment
+2. Create virtual environment
 
 `
 python3 -m venv .venv
 `
+
+3. Use virtual environment
+
 `
 source .venv/bin/activate
 `
 
-3. Install dependencies
+4. Install dependencies
 
 `
 pip install -r requirements
 `
 
-4. Start the server
+5. Start the server
 
 `
 python3 app.py
