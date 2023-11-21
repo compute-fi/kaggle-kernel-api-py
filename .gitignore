@@ -1,0 +1,6 @@
+.venv
+kaggle.json
+
+/src/__pycache__
+/src/utils/__pycache__
+/src/utils/commands/__pycache__
