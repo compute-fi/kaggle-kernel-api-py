@@ -6,6 +6,7 @@ certifi
 charset-normalizer
 click
 Flask[async]
+gunicorn
 idna
 itsdangerous
 Jinja2
