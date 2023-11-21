@@ -17,7 +17,6 @@ python-dateutil
 python-dotenv
 python-slugify
 requests
-requests-toolbet
 six
 text-unidecode
 thirdweb-sdk
