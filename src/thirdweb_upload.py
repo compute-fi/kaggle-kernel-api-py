@@ -4,7 +4,7 @@ import os
 from dotenv import load_dotenv
 load_dotenv()  # Load variables from .env file
 
-SECRET_KEY = os.environ.get("3RDWEB_TOKEN")
+SECRET_KEY = os.environ.get("THIRDWEB_TOKEN")
 
 
 async def upload_data(data):
