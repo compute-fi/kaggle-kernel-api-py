@@ -1,4 +1,4 @@
-from flask import Flask, request, send_file
+from flask import Flask, request, jsonify
 import os
 from src.create_file import download_and_save_file
 from src.create_metadata import generate_metadata_file
@@ -29,7 +29,8 @@ async def compute():
     await run_execute_commands(targetFolder)
     generatedfolder = generate_metadata_file(targetFolder, filename, fileExtension, kernel_type, enableGpu, enableTpu)
     await run_push_commands(generatedfolder)
-    return str(generatedfolder)
+    response_data = {"data": {"generatedfolder": generatedfolder}}
+    return jsonify(response_data)
 
 @app.route('/status', methods=['GET'])
 async def get_status():
