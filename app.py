@@ -29,15 +29,14 @@ async def compute():
     await run_execute_commands(targetFolder)
     generatedfolder = generate_metadata_file(targetFolder, filename, fileExtension, kernel_type, enableGpu, enableTpu)
     await run_push_commands(generatedfolder)
-    response_data = {"data": {"generatedfolder": generatedfolder}}
-    return jsonify(response_data)
+    return {"generatedfolder": generatedfolder}
 
 @app.route('/status', methods=['GET'])
 async def get_status():
     folderID = request.args.get('folderID')
     ID = await get_id(folderID)
     result = await run_status_commands(ID)
-    return str(result)
+    return {"result": result}
 
 @app.route('/output', methods=['GET'])
 async def get_output():
@@ -50,7 +49,7 @@ async def get_output():
     filePath = os.path.join(folderID, title + '.log')
     ipfs_hash = pin_file_to_ipfs(filePath)
     print(ipfs_hash)
-    return str(ipfs_hash)
+    return {"ipfshash": ipfs_hash}
 
 # Start running the terminal commands
 run_initial_commands()
