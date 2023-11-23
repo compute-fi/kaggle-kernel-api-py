@@ -17,11 +17,11 @@ port = 3000
 @app.route('/compute', methods=['GET'])
 async def compute():
     fileUrl = request.args.get('fileUrl')
-    inputGpu = str(request.args.get('enable_gpu'))
-    inputTpu = str(request.args.get('enable_tpu'))
+    # inputGpu = str(request.args.get('enable_gpu'))
+    # inputTpu = str(request.args.get('enable_tpu'))
     # Convert "t" or "true" to "true", and "f" or "false" to "false"
-    enableGpu = "true" if inputGpu.lower() in ['t', 'true'] else "false"
-    enableTpu = "true" if inputTpu.lower() in ['t', 'true'] else "false"
+    # enableGpu = "true" if inputGpu.lower() in ['t', 'true'] else "false"
+    # enableTpu = "true" if inputTpu.lower() in ['t', 'true'] else "false"
     result_file = await download_and_save_file(fileUrl)
     print(result_file)
     targetFolder = os.path.normpath(result_file['targetFolder'])
@@ -30,7 +30,7 @@ async def compute():
     kernel_type = "script" if fileExtension == "py" else "notebook" if fileExtension == "ipynb" else "unknown"
     print("RESULT",targetFolder, fileExtension, filename)
     await run_execute_commands(targetFolder)
-    generatedfolder = generate_metadata_file(targetFolder, filename, fileExtension, kernel_type, enableGpu, enableTpu)
+    generatedfolder = generate_metadata_file(targetFolder, filename, fileExtension, kernel_type, "true", "false")
     await run_push_commands(generatedfolder)
     return {"generatedfolder": generatedfolder}
 
