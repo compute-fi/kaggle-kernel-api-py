@@ -17,8 +17,11 @@ port = 3000
 @app.route('/compute', methods=['GET'])
 async def compute():
     fileUrl = request.args.get('fileUrl')
-    enableGpu = str(request.args.get('enable_gpu'))
-    enableTpu = str(request.args.get('enable_tpu'))
+    inputGpu = str(request.args.get('enable_gpu'))
+    inputTpu = str(request.args.get('enable_tpu'))
+    # Convert "t" or "true" to "true", and "f" or "false" to "false"
+    enableGpu = "true" if inputGpu.lower() in ['t', 'true'] else "false"
+    enableTpu = "true" if inputTpu.lower() in ['t', 'true'] else "false"
     result_file = await download_and_save_file(fileUrl)
     print(result_file)
     targetFolder = os.path.normpath(result_file['targetFolder'])
