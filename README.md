@@ -55,7 +55,7 @@ https://gateway.pinata.cloud/ipfs/<yourCIDhere>
 
 1. Enter your URL replacing sample URL
 `
-curl -X GET "https://kkpy.onrender.com/compute?fileUrl=https://raw.githubusercontent.com/madhukar123456/kaggle-kernel/main/python-code/mistraltest.ipynb&enable_gpu=true&enable_tpu=false"
+curl -X GET "https://kkpy.onrender.com/compute?fileUrl=https://raw.githubusercontent.com/madhukar123456/kaggle-kernel/main/python-code/mistraltest.ipynb"
 `
 Output: 
 3dbbb8fa-e3eb-4948-80c1-8a071e1b55f8
